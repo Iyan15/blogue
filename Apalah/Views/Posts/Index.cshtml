@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Apalah.Models.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        @foreach (var item in Model)
+        {
+            <div class="post-preview">
+                <a href="@Url.Action("Details", "Posts", new { id = item.ID })">
+                    <h2 class="post-title">
+                        @item.Title
+                    </h2>
+                </a>
+                <p class="post-meta">Posted by <a href="#">@item.Author</a> on @item.PostDate.ToShortDateString()</p>
+            </div>
+            <hr>
+        }
+        
+    </div>
+</div>
